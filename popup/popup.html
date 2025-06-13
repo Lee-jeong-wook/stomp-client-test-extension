@@ -1,11 +1,32 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>STOMP 테스트 채팅</title>
+<script src="../libs/sockjs.min.js"></script>
+<script src="../libs/stomp.min.js"></script>
+  <style>
+    body { width: 300px; font-family: sans-serif; }
+    input, button { width: 100%; margin: 5px 0; }
+    #chat { height: 150px; overflow-y: scroll; border: 1px solid #ccc; margin: 10px 0; background: #f9f9f9; padding: 5px; }
+  </style>
 </head>
 <body>
-    <h1>hello</h1>
+<input type="text" id="url" placeholder="ws://localhost:8080/ws" />
+<input type="text" id="subscribe" placeholder="/topic/public" />
+<input type="text" id="send" placeholder="/app/chat.send" />
+<input type="text" id="username" placeholder="이름" />
+<button id="connect">🔌 연결</button>
+<button id="subscribeBtn">📡 구독</button>
+<div id="chat"></div>
+
+<label>보낼 메시지 (JSON 형식으로 입력)</label>
+<textarea id="message" rows="5" placeholder='예: {"type":"CHAT","sender":"user1","content":"안녕하세요"}'></textarea>
+<button id="sendBtn">📤 전송</button>
+<script src="../libs/sockjs.min.js"></script>
+<script src="../libs/stomp.min.js"></script>
+  <script src="popup.js"></script>
 </body>
 </html>
